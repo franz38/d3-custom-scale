@@ -1,9 +1,9 @@
 import { describe, it, expect } from "vitest";
 import { roundEpsilon } from "./utils";
-import { scaleCustom } from "src/scaleCustom";
-import { ContinuousScale } from "src/continuous";
+import { scaleCustom } from "src/core/scaleCustom";
+import { ContinuousScale } from "src/core/continuous";
 import { tickIncrement, ticks } from "d3-array";
-import tickFormat from "src/tickFormat";
+import tickFormat from "src/core/tickFormat";
 
 interface scaleLinearInterface {
   (): ContinuousScale;

@@ -1,4 +1,4 @@
-import { transformer, customScale } from "../src/continuous";
+import { transformer, customScale } from "../src/core/continuous";
 import { describe, it, expect } from "vitest";
 
 describe("continous", () => {

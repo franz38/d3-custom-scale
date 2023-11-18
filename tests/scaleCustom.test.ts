@@ -1,4 +1,4 @@
-import { scaleCustom } from "src/scaleCustom";
+import { scaleCustom } from "src/core/scaleCustom";
 import { describe, it, expect } from "vitest";
 
 const identity = (x: number) => x;
