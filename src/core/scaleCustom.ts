@@ -1,30 +1,27 @@
-import { ticks as d3ticks, tickIncrement } from "d3-array";
-import { ContinuousScale, transformer } from "./continuous";
-import d3tickFormat from "./tickFormat";
-import { copy } from "src/utils/copy";
+import { ticks as d3ticks, tickIncrement } from 'd3-array';
+import { ContinuousScale, transformer } from './continuous';
+import d3tickFormat from '../utils/tickFormat';
+import { copy } from '../utils/copy';
 
 export interface scaleFunction {
-  (
-    transform: (x: number) => number,
-    untransform: (x: number) => number
-  ): ContinuousScale;
+  (transform: (x: number) => number, untransform: (x: number) => number): ContinuousScale;
   (
     transform: (x: number) => number,
     untransform: (x: number) => number,
-    ticks: (count: number) => number[]
+    ticks: (count: number) => number[],
   ): ContinuousScale;
   (
     transform: (x: number) => number,
     untransform: (x: number) => number,
     ticks: (count: number) => number[],
-    tickFormat: (count?: number, specifier?: string) => (d: number) => string
+    tickFormat: (count?: number, specifier?: string) => (d: number) => string,
   ): ContinuousScale;
   (
     transform: (x: number) => number,
     untransform: (x: number) => number,
     ticks?: (count: number) => number[],
     tickFormat?: (count?: number, specifier?: string) => (d: number) => string,
-    nice?: (count?: number) => ContinuousScale
+    nice?: (count?: number) => ContinuousScale,
   ): ContinuousScale;
 }
 
@@ -33,7 +30,7 @@ export const scaleCustom: scaleFunction = (
   untransform: (x: number) => number,
   ticks?: (count: number) => number[],
   tickFormat?: (count?: number, specifier?: string) => (d: number) => string,
-  nice?: (count?: number) => ContinuousScale
+  nice?: (count?: number) => ContinuousScale,
 ) => {
   const scale = transformer()(transform, untransform);
 
@@ -49,12 +46,7 @@ export const scaleCustom: scaleFunction = (
   else {
     scale.tickFormat = function (count, specifier) {
       var d = scale.domain();
-      return d3tickFormat(
-        d[0],
-        d[d.length - 1],
-        count == null ? 10 : count,
-        specifier
-      );
+      return d3tickFormat(d[0], d[d.length - 1], count == null ? 10 : count, specifier);
     };
   }
 
@@ -98,10 +90,7 @@ export const scaleCustom: scaleFunction = (
   }
 
   scale.copy = function (): ContinuousScale {
-    return copy(
-      scale,
-      scaleCustom(transform, untransform, ticks, tickFormat, nice)
-    );
+    return copy(scale, scaleCustom(transform, untransform, ticks, tickFormat, nice));
   };
 
   return scale;
