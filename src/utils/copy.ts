@@ -1,9 +1,6 @@
-import { ContinuousScale } from "src/core/continuous";
+import { ContinuousScale } from '../core/continuous';
 
-export const copy = (
-  source: ContinuousScale,
-  target: ContinuousScale
-): ContinuousScale => {
+export const copy = (source: ContinuousScale, target: ContinuousScale): ContinuousScale => {
   return target
     .domain(source.domain())
     .range(source.range())

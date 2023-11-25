@@ -1,7 +1,7 @@
 import { ContinuousScale } from '../core/continuous';
 import { scaleCustom } from '../core/scaleCustom';
 import { nice } from '../utils/nice';
-import tickFormat from '../utils/tickFormat.js';
+import tickFormat from '../utils/tickFormat';
 
 export const logitScaleDefDomain = [0.001, 0.999];
 
