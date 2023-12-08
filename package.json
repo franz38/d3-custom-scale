@@ -1,31 +1,31 @@
 {
   "name": "d3-custom-scale",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "",
-  "main": "src/index.ts",
-  "module": "src/index.js",
-  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "author": "",
   "license": "MIT",
+  "files": [
+    "lib",
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/franz38/d3-custom-scale"
   },
   "scripts": {
     "test": "vitest",
-    "build-commonjs": "tsc",
-    "build-esm": "tsc -m es6 --outDir lib-esm",
+    "build-commonjs": "tsc -m CommonJS --outDir lib-cjs",
+    "build-esm": "tsc --outDir lib",
     "build-bundle": "webpack --mode production",
-    "build": "npm run build-commonjs && npm run build-esm && npm run build-bundle",
+    "build": "npm run build-esm && npm run build-bundle",
     "prepare": "husky install"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
       "prettier --write"
     ]
-  },
-  "exports": {
-    "default": "./lib-esm/index.js"
   },
   "devDependencies": {
     "@types/d3-array": "^3.2.1",
