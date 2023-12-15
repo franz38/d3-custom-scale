@@ -1,6 +1,6 @@
 {
   "name": "d3-custom-scale",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -14,6 +14,14 @@
     "type": "git",
     "url": "git+https://github.com/franz38/d3-custom-scale"
   },
+  "keywords": [
+    "d3",
+    "d3-scale",
+    "d3-custom-scale",
+    "scale",
+    "custom scale"
+  ],
+  "homepage": "https://github.com/franz38/d3-custom-scale#readme",
   "scripts": {
     "test": "vitest",
     "build-commonjs": "tsc -m CommonJS --outDir lib-cjs",
