@@ -1,4 +1,4 @@
-# d3-custom-scales
+# d3-custom-scale
 
 This library allows the user to define custom scales from mathematical functions. The first parameter is the actual transform function, while the second one is the inverse function, used to perform the `invert()` method.
 
@@ -22,4 +22,9 @@ export const scaleCustom: scaleFunction = (
   tickFormat?: (count?: number, specifier?: string) => (d: number) => string,
   nice?: (count?: number) => ContinuousScale,
 ) => {}
+```
+
+### Installing
+```
+npm i d3-custom-scale
 ```
